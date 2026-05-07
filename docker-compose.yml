@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  secureai:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/data
+    environment:
+      - SECUREAI_JWT_SECRET=change-me-in-production
+      - SECUREAI_ADMIN_KEY=your-admin-key
+      - SECUREAI_DB_PATH=/data/secureai.db
+    restart: unless-stopped
